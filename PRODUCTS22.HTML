@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width , initial-scale=1.0">
+
+        <style>
+            footer{
+                background: #222;
+                color: #ddd;
+                text-align: center;
+                padding: 10px;
+                font-size: 16px;
+                border-top: 2px solid #979797;
+                margin-top: 150px;
+
+            }
+            body {
+                background: rgb(46, 46, 46);
+                
+                
+                
+            }
+            .slider {
+                width: 30%;
+                height: 500px;
+                background : transparent;
+                /* max-width: 800px; */
+                border-radius: 15px;
+              
+                margin: auto;
+                margin-top: 50px;
+                box-shadow: 0 4px 10px 5px rgb(0, 182, 182 , 1.5);
+                border: 3px solid rgb(238, 234, 227);
+                overflow: hidden;
+                animation: glow 3s infinite alternate;
+                
+                
+               
+
+            }
+
+            @keyframes glow {
+            0% {box-shadow: 0 0 5px rgb(245, 245, 245) ,  0 0 10px rgb(124, 124, 124) , 0 0 20px rgb(67, 236, 143)}
+            50% {box-shadow: 0 0 20px rgb(247, 246, 246) ,  0 0 30px rgb(134, 134, 133) , 0 0 40px rgb(67, 236, 143)}
+            100% {box-shadow: 0 0 5px rgb(252, 252, 252) ,  0 0 10px rgb(97, 97, 96) , 0 0 20px rgb(67, 236, 143)}
+
+        }
+
+            .slides {
+                
+                
+                display: flex;
+                /* flex-direction: column; */
+                
+                border-radius: 10px;
+                
+                transition: transform .5s ease-in-out;
+            }
+
+            .slide {
+                min-width: 100%;
+                /* align-items: center;
+                justify-content: center;
+                display: flex;
+                flex-direction: row; */
+                /* border: 5px solid red; */
+                border-radius: 10px;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+            }
+
+
+            .slide img {
+                display: flex;
+                width:60%;
+                
+                border-radius: 12px;
+                margin: auto;
+                object-fit: contain;
+            }
+            
+            .dots {
+                
+                flex-direction: row;
+                  /* تبقى مربوطة بالـ slider */
+                
+                
+                display: flex;
+                justify-content: center;
+                margin-top: 15px;
+               
+            }
+            .dot {
+            display: inline-block;
+            
+            height: 12px;
+            width: 12px;
+            margin: 0 5px;
+            background: #bbb;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+            
+            }
+
+            .dot.active {
+            background: gold;
+            transform: scale(1.3);
+            }
+
+            .logophoto {
+                position: fixed;
+                top: 5%;
+                left: 3%;
+                transform: translate(-50%, -50%);
+                width: 150px;
+                
+            }
+
+            .navbar {
+                background-color: #ffffff;
+                
+                display: flex;
+                justify-content: center;
+                padding: 20px 20px;
+                margin-top: 30px;
+                gap: 50px;
+                font-size: 20px;
+                border-radius: 10px;
+                animation: pulseBorder 3s infinite ;
+                border: 3px solid rgb(255, 255, 255);
+                
+                
+            }
+
+            @keyframes pulseBorder {
+            0%   { box-shadow: 0 0 5px rgb(124, 124, 124), 0 0 10px  rgb(179, 6, 6); }
+            50%  { box-shadow: 0 0 20px rgb(124, 124, 124), 0 0 40px rgb(233, 73, 45); }
+            100% { box-shadow: 0 0 5px rgb(124, 124, 124), 0 0 10px rgb(122, 25, 25); }
+            }
+
+
+            .navbar a {
+                color: rgb(0, 0, 0);
+                text-decoration: none;
+                padding: 14px 14px;
+                display: block;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                font-weight: bold;
+                /* border: 2px solid black;
+                border-radius: 10px; */
+            }
+
+            .navbar a:hover {
+                background: rgba(97, 62, 9, 0.315);
+                border-radius: 20px;
+                animation: pulseBorder 3s infinite alternate;
+                color: black;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                font-weight: bold;
+            }
+
+            .dropdown {
+                position: relative;
+                cursor: pointer;
+            }
+
+            .dropdown .dropbtn {
+                color: white;
+                padding: 14px 14px;
+                cursor: pointer;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                top: 100%;           /* تحت الزر مباشرة */
+                left: 0;
+                min-width: 200px;
+                background: lightgray;
+                box-shadow: 0 8px 16px rgba(0,0,0,.2);
+                border-radius: 8px;
+                z-index: 1000;
+                text-align: center;
+                border: 2px solid white;
+                animation: glow 3s infinite alternate;
+            }
+
+
+            .dropdown:hover .dropdown-content{
+                display: block;
+                
+            }
+
+            
+            .background {
+                position: absolute;     /* هتخليها تطفو فوق البودي */
+                top: 0;
+                left: 0;
+                width: 100%;            /* تاخد عرض الصفحة كله */
+                height: 100%;           /* تاخد طول الصفحة كله */
+                z-index: -1;            /* تخليها ورا كل العناصر */
+                border-radius: 0;       /* لو مش عايز زوايا مدورة */
+                border: none;           /* تشيل البوردر */
+                overflow: hidden;
+            }
+
+            .background img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;      /* تخلي الصورة تغطي الخلفية كويس */
+            }
+
+
+            
+        </style>
+        <body>
+            <div class="background">
+                <img src="back2.jpg" alt="">
+            </div>
+            
+            <!-- <img src="https://cdn.supercommerce.io/tarshouby/uploads/altarshouby-1720017750.png" alt="logoimg"  class="logophoto"> -->
+            <div class="navbar">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#categories">Categories</a>
+                <a href="#newarrival">New Arrival</a>
+                <a href="#discover">Discover</a>
+                <a href="#contact">Contact Us</a>
+                <div  class="dropdown">
+                    <a href="#weeding">Weeding Packing</a>
+
+                    <div class="dropdown-content">
+                    <a href="#necklece">Massage</a>
+                    <a href="#Acceso">Accessories</a>
+                    <a href="#tarat">Tara Weeding</a>
+                    </div>
+                </div>
+                
+               
+                
+            </div>
+
+            
+            <div class="slider">
+                <div class="slides">
+                    <div class="slide"><img src="mod10.jpg" alt=""></div>
+                    <div class="slide"><img src="mod1.jpg" alt=""></div>
+                    <div class="slide"><img src="mod2.jpg" alt=""></div>
+                    <div class="slide"><img src="mod3.jpg" alt=""></div>
+                    <div class="slide"><img src="mod4.png" alt=""></div>
+                    <div class="slide"><img src="mod5.jpg" alt=""></div>
+                    <div class="slide"><img src="mod6.jpg" alt=""></div>
+                    <div class="slide"><img src="mod7.jpg" alt=""></div>
+                    <div class="slide"><img src="mod8.jpg" alt=""></div>
+                    <div class="slide"><img src="11.jpg" alt=""></div>
+
+
+                </div>
+            </div>
+
+            <div class="dots">
+                    <span class="dot" onclick="goToSlide(0)"></span>
+                    <span class="dot" onclick="goToSlide(1)"></span>
+                    <span class="dot" onclick="goToSlide(2)"></span>
+                    <span class="dot" onclick="goToSlide(3)"></span>
+                    <span class="dot" onclick="goToSlide(4)"></span>
+                    <span class="dot" onclick="goToSlide(5)"></span>
+                    <span class="dot" onclick="goToSlide(6)"></span>
+                    <span class="dot" onclick="goToSlide(7)"></span>
+                    <span class="dot" onclick="goToSlide(8)"></span>
+                    <span class="dot" onclick="goToSlide(9)"></span>
+
+
+            </div>
+
+            <footer class="fotr">
+                <p>&copy; 2025 My Website. All rights reserved.</p>
+            </footer>
+
+
+            <script>
+            let currentIndex = 0;
+        const slides = document.querySelector(".slides");
+        const totalSlides = document.querySelectorAll(".slide").length;
+        const dots = document.querySelectorAll(".dot");
+
+        function updateSlider() {
+        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        // تحديث النقط
+        dots.forEach((dot, i) => {
+            dot.classList.toggle("active", i === currentIndex);
+        });
+        }
+
+        function moveSlide(step) {
+        currentIndex = (currentIndex + step + totalSlides) % totalSlides;
+        updateSlider();
+        }
+
+        function goToSlide(index) {
+        currentIndex = index;
+        updateSlider();
+        }
+
+        // تشغيل تلقائي
+        setInterval(() => moveSlide(1), 5000);
+
+        // أول تحميل
+        updateSlider();
+
+        </script>
+
+        </body>
+    </head>
+</html>
