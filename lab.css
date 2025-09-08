@@ -1,0 +1,275 @@
+body {
+    background: black;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    /* margin-top: 15%; */
+    margin-top: 20px;
+    gap: 40px;
+}
+
+.logophoto {
+    width: 70px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+   border-radius: 50%;
+    border: 3px solid white;
+    animation: glow 3s infinite alternate;
+}
+
+body:hover .prev,
+body:hover .next {
+  display: block; /* يظهروا مع الهوفر */
+}
+.slider {
+     /* border: 5px solid white; */
+     align-items: center;
+     justify-content: center;
+     display: flex;
+     width: 50%;
+    border-radius: 10px;
+    margin: 0;
+    
+
+     
+     
+     
+   
+    
+}
+
+.slides {
+    display: flex;
+    gap: 100px;
+    
+
+}
+.slide {
+    
+     display: flex;
+     flex-direction: column;
+     text-align: center;
+     cursor: pointer;
+
+   
+}
+
+.slide h3 {
+    color: antiquewhite;
+    
+}
+
+.slide img {
+    display: flex;
+   
+    width: 200px;
+    border-radius: 50%;
+    border: 3px solid white;
+    animation: glow 3s infinite alternate;
+    
+
+}
+
+
+
+
+@keyframes glow {
+            0% {box-shadow: 0 0 5px rgb(245, 245, 245) ,  0 0 10px rgb(124, 124, 124) , 0 0 20px rgb(67, 236, 143)}
+            50% {box-shadow: 0 0 20px rgb(247, 246, 246) ,  0 0 30px rgb(134, 134, 133) , 0 0 40px rgb(67, 236, 143)}
+            100% {box-shadow: 0 0 5px rgb(252, 252, 252) ,  0 0 10px rgb(97, 97, 96) , 0 0 20px rgb(67, 236, 143)}
+}
+
+
+.slider2 {
+   
+    width: 30%;
+    height: 500px;
+    background: transparent;
+    border-radius: 10px;
+    animation: glow 3s infinite alternate;
+    overflow: hidden;
+    margin: auto;
+    
+}
+
+.slides2 {
+    display: flex;
+    transition: transform 3s ease-in-out;
+    height: 490px;
+    width: 98%;
+    
+    
+    
+   
+}
+
+.slide2 {
+    background: transparent;
+    min-width: 100%;
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* border: 5px solid rgba(58, 199, 204, 0.671); */
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+   
+    
+}
+
+.slide2 img {
+    width: 60%;
+    display: flex;
+    object-fit: cover;
+    margin-top: 5px;
+    
+    /* border: 5px solid rgb(202, 5, 252); */
+    border-radius: 10px;
+    animation: glow 3s infinite alternate;
+    
+    
+   
+   
+}
+
+.dots {
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    
+}
+
+.dot {
+    display: inline-block;
+    height: 12px; 
+    width: 12px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 0;
+   
+}
+
+.dot.active { 
+    background: gold;
+    transform: scale(1.3);
+}
+
+
+.prev ,.next {
+    display: none;
+    position: absolute;
+    cursor: pointer;
+    top: 55%;
+    transform: translateY(-50%);
+    background: transparent;
+    border-radius: 50%;
+    padding: 10px;
+    border: none;
+    color: wheat;
+    font-size: 30px;
+
+
+
+}
+
+.prev{left: 400px ;}
+.next {right: 400px;}
+
+
+/* ################################ natural oils ################################### */
+
+body {
+    gap: 50px;
+   
+
+}
+
+.first-container {
+    width: 30%;
+    
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    
+    font-size: 20px;
+   
+    /* border: 5px solid rgb(216, 115, 115); */
+    /* background: rgb(245, 247, 244); */
+    border-radius: 10px;
+}
+.first-container img {
+    width: 120px;
+    /* transform: scale(0.3); */
+    border-radius: 50% ;
+    border: 5px solid rgb(245, 247, 244);
+    animation: glow 3s infinite alternate;
+    
+}
+
+.first-container h3 {
+    color: goldenrod;
+   
+}
+
+.description-natural-oils {
+    /* border: 3px solid white; */
+    display: flex;
+    
+}
+.description-natural-oils p {
+    color: goldenrod;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 25px;
+    text-align: center;
+}
+
+
+.second-container {
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    /* border: 3px solid white; */
+    background: rgb(245, 244, 243);
+    
+
+    
+}
+
+ .sub1 {
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+
+    
+}
+
+
+.sub1 img {
+    margin-top: 20px;
+    width: 40%;
+    border: 3px solid white;
+    border-radius: 50%;
+    animation: glow 3s infinite alternate;
+}
+
+.sub1 img:hover{
+
+    transform: scale(1.5);
+
+}
+
+.sub1 h3 {
+    color: goldenrod;
+}

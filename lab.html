@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width , initial-scale=1.0">
+        <link rel="stylesheet" href="lab.css">
+    </head>
+       
+
+        <body>
+            <img class="logophoto" src="logo.png" alt="">
+            <div class="slider">
+                <div class="slides">
+                    <div class="slide">
+                        <img src="https://cdn.supercommerce.io/tarshouby/uploads/NATURAL%20OILS-1654624243.jpg" alt="natoils" onclick="window.location.href='naturaloils.html'">
+                        <h3>NATURAL <br> OILS</h3>
+                    </div>
+                    <div class="slide">
+                        <img src="https://cdn.supercommerce.io/tarshouby/uploads/ALABDELLATIFNATURALS-1752759935.jpg" alt="natoils">
+                        <h3>Al-ABDELLATIF <br> NATURALS</h3>
+                        
+                    </div>
+                    <div class="slide">
+                        <img src="https://cdn.supercommerce.io/tarshouby/uploads/CHEMICALPREPARATIONS-1752924711.jpg" alt="natoils">
+                        <h3>CHEMICAL <br> PREPARATIONS</h3>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!-- <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button> -->
+
+
+            <div class="slider2">
+                <div class="slides2">
+                    <div class="slide2"><img src="1.png" alt=""></div>
+                    <div class="slide2"><img src="2.png" alt=""></div>
+                    <div class="slide2"><img src="3.png" alt=""></div>
+                    <div class="slide2"><img src="mod1.jpg" alt=""></div>
+                    <div class="slide2"><img src="5.png" alt=""></div>
+                    <div class="slide2"><img src="6.png" alt=""></div>
+                    
+
+
+                </div>
+            </div>
+
+            <div class="dots">
+                <span class="dot" onclick="goToSlide(0)"></span>
+                <span class="dot" onclick="goToSlide(1)"></span>
+                <span class="dot" onclick="goToSlide(2)"></span>
+                <span class="dot" onclick="goToSlide(3)"></span>
+                <span class="dot" onclick="goToSlide(4)"></span>
+                <span class="dot" onclick="goToSlide(5)"></span>
+
+            </div>
+
+             <script>
+            let currentIndex = 0;
+        const slides = document.querySelector(".slides2");
+        const totalSlides = document.querySelectorAll(".slide2").length;
+        const dots = document.querySelectorAll(".dot");
+
+        function updateSlider() {
+        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        // تحديث النقط
+        dots.forEach((dot, i) => {
+            dot.classList.toggle("active", i === currentIndex);
+        });
+        }
+
+        function moveSlide(step) {
+        currentIndex = (currentIndex + step + totalSlides) % totalSlides;
+        updateSlider();
+        }
+
+        function goToSlide(index) {
+        currentIndex = index;
+        updateSlider();
+        }
+
+        // تشغيل تلقائي
+        setInterval(() => moveSlide(1), 5000);
+
+        // أول تحميل
+        updateSlider();
+
+        </script>
+
+            
+        </body>
+</html>
